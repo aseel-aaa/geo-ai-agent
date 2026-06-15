@@ -1,0 +1,99 @@
+{
+  "title": "GEOLens",
+  "placeholder": "https://your-website.com",
+  "analyzeBtn": "Analyze with GEOLens →",
+  "analyzingBtn": "Analyzing...",
+  "footer": "GEOLens · Built with research from Princeton & Georgia Tech",
+  "error": "Something went wrong. Try a different URL.",
+  "tip": "💡 For best results, use an \"About Us\" or \"Services\" page URL",
+
+  "nav": {
+    "brand": "GEOLens"
+  },
+
+  "hero": {
+    "badge": "🚀 Based on Princeton & Georgia Tech · ACM SIGKDD 2024",
+    "title": "Make AI Cite Your Website",
+    "subtitle": "GEOLens analyzes your page content and rewrites it to maximize visibility in ChatGPT, Perplexity, and Gemini answers.",
+    "hint": "Free · No signup required · Results in ~20 seconds"
+  },
+
+  "stats": {
+    "traffic": "More AI Traffic",
+    "searches": "AI-Powered Searches",
+    "citations": "Citation Boost",
+    "criteria": "GEO Criteria"
+  },
+
+  "featuresSection": {
+    "title": "How GEOLens Works"
+  },
+
+  "features": {
+    "scrape": {
+      "title": "Deep Content Analysis",
+      "desc": "Extracts and reads your full webpage content including JS-rendered sections."
+    },
+    "agent1": {
+      "title": "AI GEO Scoring",
+      "desc": "Scores your content against 6 scientifically-backed GEO criteria from Princeton research."
+    },
+    "agent2": {
+      "title": "Content Rewriting",
+      "desc": "Rewrites your page with placeholders for stats, citations, and expert quotes."
+    },
+    "export": {
+      "title": "Export Ready",
+      "desc": "Copy or download your AI-optimized content instantly and apply it to your site."
+    }
+  },
+
+  "faqSection": {
+    "title": "Frequently Asked Questions"
+  },
+
+  "faq": {
+    "q1": "What is GEO?",
+    "a1": "Generative Engine Optimization (GEO) is the practice of optimizing content so AI engines like ChatGPT, Perplexity, and Gemini cite your website in their answers.",
+    "q2": "How is this different from SEO?",
+    "a2": "SEO targets search engine rankings. GEO targets AI citation frequency. Both matter, but AI search is growing exponentially and requires different content strategies.",
+    "q3": "Is my data safe?",
+    "a3": "We only read public webpage content. No login data or private information is ever accessed or stored.",
+    "q4": "How long does an analysis take?",
+    "a4": "Typically 15–30 seconds. We scrape, analyze, and rewrite your content using advanced AI models."
+  },
+
+  "dashboard": {
+    "title": "GEOLens Results",
+    "newAnalysis": "← New Analysis",
+    "analyzedUrl": "Analyzed URL:"
+  },
+
+  "scoreCard": {
+    "title": "Your GEO Score",
+    "weakMsg": "Your site is weak for AI engines",
+    "moderateMsg": "Your site needs important improvements",
+    "strongMsg": "Your site is excellent for AI engines",
+    "strengths": "✅ Strengths",
+    "weaknesses": "❌ Weaknesses",
+    "recommendations": "💡 Recommendations",
+    "noData": "None identified",
+    "statusLabel": {
+      "weak": "WEAK",
+      "moderate": "MODERATE",
+      "strong": "STRONG"
+    }
+  },
+
+  "rewritePanel": {
+    "title": "✨ AI-Optimized Content",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "export": "Export .txt"
+  },
+
+  "lang": {
+    "en": "English",
+    "ar": "عربي"
+  }
+}

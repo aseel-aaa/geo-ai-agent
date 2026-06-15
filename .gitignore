@@ -1,0 +1,25 @@
+# Root Markdown files (keeps them locally but excludes from Git)
+/*.md
+!/README.md
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
+
+# Backend Environment & Dependencies
+backend/venv/
+backend/__pycache__/
+backend/geolens.db
+backend/.env
+
+# Frontend ignores are handled by frontend/.gitignore, 
+# but added here at the root level for extra safety:
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.env*
+frontend/next-env.d.ts
+frontend/.vercel
+frontend/*.tsbuildinfo
