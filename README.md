@@ -82,9 +82,3 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Production Notes
-
-- Set `NEXT_PUBLIC_API_BASE_URL` to your deployed backend URL.
-- Restrict CORS origins in `backend/main.py` before public deployment.
-- Keep API keys server-side only. Do not expose Gemini or Jina keys to the frontend.
-- GEOLens rejects local/private network URLs to reduce SSRF-style scraping risk.
