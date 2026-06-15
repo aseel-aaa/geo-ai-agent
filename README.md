@@ -36,7 +36,7 @@ Ensure you have the following installed on your system:
 
 ### 2. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/aseel-aaa/geo-ai-agent
 cd GEOLens
 ```
 
