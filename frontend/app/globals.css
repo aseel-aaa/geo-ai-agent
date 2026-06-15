@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap');
 @import "tailwindcss";
 
 @font-face {
@@ -81,9 +80,8 @@
   --text-muted:      #6e737a;
   --text-inverse:    #faf9f5;
 
-  --font-display:    'Thmanyah Serif Display', 'Fraunces', serif;
-  /* Geist is loaded via next/font in layout.tsx */
-  --font-body:       'Thmanyah Sans', var(--font-geist), sans-serif;
+  --font-display:    'Thmanyah Serif Display', Georgia, serif;
+  --font-body:       'Thmanyah Sans', Arial, sans-serif;
 
   --radius-sm:       4px;
   --radius-md:       8px;

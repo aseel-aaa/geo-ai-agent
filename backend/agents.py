@@ -21,6 +21,7 @@ def run_geo_pipeline(content: str, language: str = "English") -> dict:
     # 3. Compile output
     return {
         "status": analysis.get("status", "weak"),
+        "criteria_scores": analysis.get("criteria_scores", []),
         "strengths": analysis.get("strengths", []),
         "weaknesses": analysis.get("weaknesses", []),
         "recommendations": analysis.get("recommendations", []),

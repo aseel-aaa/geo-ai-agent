@@ -6,10 +6,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 api_key = os.environ.get("GEMINI_API_KEY")
-client = genai.Client(api_key=api_key)
+client = genai.Client(api_key=api_key) if api_key else None
 
 def generate_with_retry(prompt: str, is_json: bool = False, retries: int = 3) -> str:
     """Helper function to run generate_content with retries on network transient errors and model fallback."""
+    if client is None:
+        raise RuntimeError("Gemini API key is not configured on the backend")
+
     models_to_try = ['gemini-2.5-flash', 'gemini-1.5-flash', 'gemini-2.0-flash']
     last_exception = None
     for attempt in range(retries):
@@ -32,4 +35,3 @@ def generate_with_retry(prompt: str, is_json: bool = False, retries: int = 3) ->
     
     if last_exception:
         raise last_exception
-

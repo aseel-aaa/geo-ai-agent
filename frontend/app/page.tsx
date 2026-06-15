@@ -120,10 +120,6 @@ export default function Home() {
     { q: t.faq.q4, a: t.faq.a4 },
   ];
 
-  // Strip emojis from the localized strings dynamically
-  const cleanedBadgeText = t.hero.badge.replace(/^🚀\s*/, "");
-  const cleanedButtonText = t.analyzeBtn.replace(/[→←]\s*/g, "").trim();
-
   return (
     <main dir={dir} className="min-h-screen flex flex-col justify-between">
       {/* ── NAVIGATION ── */}
@@ -149,7 +145,7 @@ export default function Home() {
           <div className="animate-badge-pop">
             <div className="geo-badge flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>{cleanedBadgeText}</span>
+              <span>{t.hero.badge}</span>
             </div>
           </div>
 
@@ -190,7 +186,7 @@ export default function Home() {
                   </>
                 ) : (
                   <>
-                    <span>{cleanedButtonText}</span>
+                    <span>{t.analyzeBtn}</span>
                     <ArrowRight
                       className={`geo-arrow w-4 h-4 transition-transform ${
                         dir === "rtl" ? "rotate-180" : ""
@@ -206,7 +202,7 @@ export default function Home() {
                 <AlertCircle className="w-6 h-6 text-[var(--danger)] shrink-0 mt-0.5" />
                 <div className="flex-1 space-y-2">
                   <p className="text-sm font-semibold text-[var(--danger)]">
-                    {language === "Arabic" ? "حدث خطأ أثناء التحليل" : "Analysis Failed"}
+                    {t.errorTitle}
                   </p>
                   <p className="text-xs text-[var(--text-secondary)] leading-relaxed">
                     {error}
@@ -218,7 +214,7 @@ export default function Home() {
                   className="geo-btn-ghost px-4 py-2 text-xs font-semibold flex items-center gap-1.5 shrink-0"
                 >
                   <RefreshCw className="w-3.5 h-3.5" />
-                  <span>{language === "Arabic" ? "إعادة المحاولة" : "Retry"}</span>
+                  <span>{t.retry}</span>
                 </button>
               </div>
             )}

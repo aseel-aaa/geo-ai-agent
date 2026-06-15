@@ -1,95 +1,90 @@
-# GEOLens — Generative Engine Optimization (GEO) Analyzer
+# GEOLens - Generative Engine Optimization Analyzer
 
-GEOLens is a professional web application designed to analyze, score, and optimize website content for visibility in generative AI search engines (such as Google Gemini, Perplexity, and ChatGPT Search). 
+GEOLens is a web app for analyzing, scoring, and improving website content for visibility in generative AI search engines such as Gemini, Perplexity, and ChatGPT Search.
 
-The analysis is based on the **GEO (Generative Engine Optimization)** framework published by researchers from Princeton, Georgia Tech, and Allen Institute for AI in 2024.
-
----
+The app follows a GEO-style evaluation workflow: scrape a public page, check it against six content criteria, explain the score, and generate a safer rewritten draft with placeholders for facts the user should supply.
 
 ## Key Features
 
-* **Instant Scraper**: Scrapes and cleans web pages using the Jina AI Reader API.
-* **GEO Evaluation**: Analyzes content against GEO criteria (authority, formatting, optimization, citations, and density).
-* **Detailed Audit Report**: Identifies content strengths, weaknesses, and concrete recommendations for enhancement.
-* **AI Content Rewriter**: Generates a rewritten, GEO-optimized version of the text ready to deploy.
-* **Bilingual Support**: Full support for English and Arabic analysis.
-* **Premium Typography**: Custom elegant fonts (Thmanyah for Arabic, Geist for English).
-
----
+- Public webpage scraping through the Jina AI Reader API.
+- GEO analysis across six explicit criteria: statistics, citations, quotes, coverage, structure, and identity clarity.
+- Transparent rubric display showing which criteria passed and the evidence behind each one.
+- AI content rewrite that avoids inventing fake numbers, sources, quotes, or company facts.
+- English and Arabic UI support.
+- SQLite-backed analysis counter for demos and lightweight usage tracking.
 
 ## Technology Stack
 
-* **Frontend**: Next.js 16 (React 19), Tailwind CSS, Lucide Icons.
-* **Backend**: FastAPI (Python 3), SQLite (Database for saving audits).
-* **APIs**:
-  * **Google Gemini API**: Drives the dual-agent analysis and optimization pipeline.
-  * **Jina AI Reader API**: Handles robust web scraping and markdown conversion.
-
----
+- Frontend: Next.js, React, TypeScript, Tailwind CSS, Lucide Icons.
+- Backend: FastAPI, Pydantic, SQLite.
+- APIs: Google Gemini API and Jina AI Reader API.
 
 ## Getting Started
 
-### 1. Prerequisites
-Ensure you have the following installed on your system:
-* [Python 3.10+](https://www.python.org/downloads/)
-* [Node.js 18+](https://nodejs.org/)
+### Prerequisites
 
-### 2. Clone the Repository
+- Python 3.10+
+- Node.js 18+
+
+### Backend Setup
+
+Clone the repository:
+
 ```bash
 git clone https://github.com/aseel-aaa/geo-ai-agent
-cd GEOLens
+cd geo-ai-agent
 ```
 
-### 3. Setup Environment Variables
-You **must** configure the API keys for the backend to function.
-Create a `.env` file inside the `backend/` directory:
+Create a backend environment file:
+
+```bash
+cp backend/.env.example backend/.env
+```
+
+Fill in:
 
 ```env
-# backend/.env
 GEMINI_API_KEY="your_gemini_api_key_here"
 JINA_API_KEY="your_jina_api_key_here"
 ```
 
->  **How to get keys:**
-> * Get your **Gemini API Key** from [Google AI Studio](https://aistudio.google.com/).
-> * Get your **Jina API Key** from [Jina AI Reader](https://jina.ai/).
+Install and run:
 
----
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload --host 127.0.0.1 --port 8000
+```
 
-##  Run the Application
+API docs will be available at `http://127.0.0.1:8000/docs`.
 
-### Backend (FastAPI)
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Activate the virtual environment (Windows):
-   ```bash
-   .\venv\Scripts\activate
-   ```
-3. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Start the backend server:
-   ```bash
-   uvicorn main:app --reload --host 127.0.0.1 --port 8000
-   ```
-   * The API docs will be available at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+### Frontend Setup
 
----
+Create a frontend environment file:
 
-### Frontend (Next.js)
-1. Open a new terminal and navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install npm dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-   * Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+```bash
+cp frontend/.env.local.example frontend/.env.local
+```
+
+For local development, keep:
+
+```env
+NEXT_PUBLIC_API_BASE_URL="http://localhost:8000"
+```
+
+Install and run:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+## Production Notes
+
+- Set `NEXT_PUBLIC_API_BASE_URL` to your deployed backend URL.
+- Restrict CORS origins in `backend/main.py` before public deployment.
+- Keep API keys server-side only. Do not expose Gemini or Jina keys to the frontend.
+- GEOLens rejects local/private network URLs to reduce SSRF-style scraping risk.

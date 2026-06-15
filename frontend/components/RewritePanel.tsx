@@ -26,9 +26,6 @@ export default function RewritePanel({ content, t }: Props) {
     a.click();
   };
 
-  // Clean emojis from localized title
-  const cleanedTitle = t.rewritePanel.title.replace(/^✨\s*/, "");
-
   return (
     <div className="bg-[var(--bg-surface)] border-2 border-[var(--text-primary)] rounded-lg shadow-[4px_4px_0px_var(--text-primary)] overflow-hidden">
       
@@ -37,7 +34,7 @@ export default function RewritePanel({ content, t }: Props) {
         <div className="flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-[var(--accent)]" />
           <h3 className="font-serif text-lg font-bold text-[var(--text-primary)]">
-            {cleanedTitle}
+            {t.rewritePanel.title}
           </h3>
         </div>
         

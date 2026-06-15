@@ -14,16 +14,24 @@ export default function Dashboard() {
   const router = useRouter();
 
   useEffect(() => {
-    const stored = sessionStorage.getItem("geo_result");
-    const storedUrl = sessionStorage.getItem("geo_url");
-    const storedLang = sessionStorage.getItem("geo_lang");
-    if (!stored) {
-      router.push("/");
-      return;
-    }
-    setResult(JSON.parse(stored));
-    setUrl(storedUrl || "");
-    setLanguage(storedLang || "English");
+    queueMicrotask(() => {
+      const stored = sessionStorage.getItem("geo_result");
+      const storedUrl = sessionStorage.getItem("geo_url");
+      const storedLang = sessionStorage.getItem("geo_lang");
+      if (!stored) {
+        router.push("/");
+        return;
+      }
+
+      try {
+        setResult(JSON.parse(stored));
+        setUrl(storedUrl || "");
+        setLanguage(storedLang || "English");
+      } catch {
+        sessionStorage.removeItem("geo_result");
+        router.push("/");
+      }
+    });
   }, [router]);
 
   if (!result) return null;
@@ -66,7 +74,7 @@ export default function Dashboard() {
             ) : (
               <ArrowLeft className="w-4 h-4" />
             )}
-            <span>{t.dashboard.newAnalysis.replace(/[←→]\s*/g, "").trim()}</span>
+            <span>{t.dashboard.newAnalysis}</span>
           </button>
         </div>
 
@@ -75,6 +83,7 @@ export default function Dashboard() {
           <div className="animate-fade-in-up stagger-1">
             <ScoreCard
               status={result.status}
+              criteriaScores={result.criteria_scores ?? []}
               strengths={result.strengths}
               weaknesses={result.weaknesses}
               recommendations={result.recommendations}

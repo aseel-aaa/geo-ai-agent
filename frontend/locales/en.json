@@ -1,21 +1,23 @@
 {
   "title": "GEOLens",
   "placeholder": "https://your-website.com",
-  "analyzeBtn": "Analyze with GEOLens →",
+  "analyzeBtn": "Analyze with GEOLens",
   "analyzingBtn": "Analyzing...",
-  "footer": "GEOLens · Built with research from Princeton & Georgia Tech",
+  "footer": "GEOLens - Built with research from Princeton and Georgia Tech",
   "error": "Something went wrong. Try a different URL.",
-  "tip": "💡 For best results, use an \"About Us\" or \"Services\" page URL",
+  "errorTitle": "Analysis Failed",
+  "retry": "Retry",
+  "tip": "For best results, use an About Us or Services page URL",
 
   "nav": {
     "brand": "GEOLens"
   },
 
   "hero": {
-    "badge": "🚀 Based on Princeton & Georgia Tech · ACM SIGKDD 2024",
+    "badge": "Based on Princeton and Georgia Tech - ACM SIGKDD 2024",
     "title": "Make AI Cite Your Website",
     "subtitle": "GEOLens analyzes your page content and rewrites it to maximize visibility in ChatGPT, Perplexity, and Gemini answers.",
-    "hint": "Free · No signup required · Results in ~20 seconds"
+    "hint": "Free - No signup required - Results in about 20 seconds"
   },
 
   "stats": {
@@ -36,11 +38,11 @@
     },
     "agent1": {
       "title": "AI GEO Scoring",
-      "desc": "Scores your content against 6 scientifically-backed GEO criteria from Princeton research."
+      "desc": "Scores your content against 6 research-backed GEO criteria."
     },
     "agent2": {
       "title": "Content Rewriting",
-      "desc": "Rewrites your page with placeholders for stats, citations, and expert quotes."
+      "desc": "Rewrites your page with safe placeholders for stats, citations, and expert quotes."
     },
     "export": {
       "title": "Export Ready",
@@ -54,18 +56,18 @@
 
   "faq": {
     "q1": "What is GEO?",
-    "a1": "Generative Engine Optimization (GEO) is the practice of optimizing content so AI engines like ChatGPT, Perplexity, and Gemini cite your website in their answers.",
+    "a1": "Generative Engine Optimization (GEO) is the practice of optimizing content so AI engines like ChatGPT, Perplexity, and Gemini can cite your website in their answers.",
     "q2": "How is this different from SEO?",
-    "a2": "SEO targets search engine rankings. GEO targets AI citation frequency. Both matter, but AI search is growing exponentially and requires different content strategies.",
+    "a2": "SEO targets search engine rankings. GEO targets AI citation frequency. Both matter, but AI search rewards clear facts, source signals, structure, and entity clarity.",
     "q3": "Is my data safe?",
-    "a3": "We only read public webpage content. No login data or private information is ever accessed or stored.",
+    "a3": "GEOLens only reads public webpage content. No login data or private information is accessed.",
     "q4": "How long does an analysis take?",
-    "a4": "Typically 15–30 seconds. We scrape, analyze, and rewrite your content using advanced AI models."
+    "a4": "Usually 15 to 30 seconds. GEOLens scrapes, analyzes, and rewrites the page using AI models."
   },
 
   "dashboard": {
     "title": "GEOLens Results",
-    "newAnalysis": "← New Analysis",
+    "newAnalysis": "New Analysis",
     "analyzedUrl": "Analyzed URL:"
   },
 
@@ -74,9 +76,12 @@
     "weakMsg": "Your site is weak for AI engines",
     "moderateMsg": "Your site needs important improvements",
     "strongMsg": "Your site is excellent for AI engines",
-    "strengths": "✅ Strengths",
-    "weaknesses": "❌ Weaknesses",
-    "recommendations": "💡 Recommendations",
+    "rubricTitle": "Criterion Breakdown",
+    "rubricScore": "{count}/6 criteria met",
+    "rubricHint": "Status is calculated from this rubric.",
+    "strengths": "Strengths",
+    "weaknesses": "Weaknesses",
+    "recommendations": "Recommendations",
     "noData": "None identified",
     "statusLabel": {
       "weak": "WEAK",
@@ -86,7 +91,7 @@
   },
 
   "rewritePanel": {
-    "title": "✨ AI-Optimized Content",
+    "title": "AI-Optimized Content",
     "copy": "Copy",
     "copied": "Copied!",
     "export": "Export .txt"
@@ -94,6 +99,6 @@
 
   "lang": {
     "en": "English",
-    "ar": "عربي"
+    "ar": "Arabic"
   }
 }
