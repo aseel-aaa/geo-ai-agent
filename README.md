@@ -1,23 +1,36 @@
 # GEOLens - Generative Engine Optimization Analyzer
 
-GEOLens is a web app for analyzing, scoring, and improving website content for visibility in generative AI search engines such as Gemini, Perplexity, and ChatGPT Search.
+GEOLens is a hackathon MVP that helps website owners analyze and improve their content for visibility in generative AI search engines such as ChatGPT, Gemini, and Perplexity.
 
-The app follows a GEO-style evaluation workflow: scrape a public page, check it against six content criteria, explain the score, and generate a safer rewritten draft with placeholders for facts the user should supply.
+The project is inspired by the 2024 GEO (Generative Engine Optimization) research from Princeton, Georgia Tech, and the Allen Institute for AI. That research studies how content signals such as citations, statistics, authoritative quotes, and clear structure can improve visibility in AI-generated answers. GEOLens turns those research ideas into a practical website audit and rewriting tool.
 
-## Key Features
+## What It Does
 
-- Public webpage scraping through the Jina AI Reader API.
-- GEO analysis across six explicit criteria: statistics, citations, quotes, coverage, structure, and identity clarity.
-- Transparent rubric display showing which criteria passed and the evidence behind each one.
-- AI content rewrite that avoids inventing fake numbers, sources, quotes, or company facts.
-- English and Arabic UI support.
-- SQLite-backed analysis counter for demos and lightweight usage tracking.
+- Scrapes a public webpage using the Jina AI Reader API.
+- Evaluates the page against six GEO criteria:
+  - Statistics and numbers
+  - Source citations
+  - Authoritative quotes
+  - Comprehensive coverage
+  - Clear structure
+  - Identity clarity
+- Shows a transparent audit report with strengths, weaknesses, and recommendations.
+- Generates a GEO-optimized rewrite using Gemini.
+- Avoids inventing fake numbers, sources, quotes, or company facts by using placeholders where real evidence is needed.
+- Supports English and Arabic analysis.
 
-## Technology Stack
+## Why It Matters
 
-- Frontend: Next.js, React, TypeScript, Tailwind CSS, Lucide Icons.
-- Backend: FastAPI, Pydantic, SQLite.
-- APIs: Google Gemini API and Jina AI Reader API.
+Traditional SEO focuses on ranking in search results. GEO focuses on whether AI engines can understand, trust, and cite your content inside generated answers.
+
+GEOLens is not claiming guaranteed traffic results. Instead, it operationalizes research-backed GEO techniques into an actionable tool that helps users improve the signals AI systems tend to reward.
+
+## Tech Stack
+
+- Frontend: Next.js, React, TypeScript, Tailwind CSS, Lucide Icons
+- Backend: FastAPI, Pydantic
+- AI: Google Gemini API
+- Scraping: Jina AI Reader API
 
 ## Getting Started
 
@@ -25,30 +38,32 @@ The app follows a GEO-style evaluation workflow: scrape a public page, check it 
 
 - Python 3.10+
 - Node.js 18+
+- Gemini API key
+- Jina AI Reader API key
 
-### Backend Setup
-
-Clone the repository:
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/aseel-aaa/geo-ai-agent
+git clone https://github.com/aseel-aaa/geo-ai-agent.git
 cd geo-ai-agent
 ```
 
-Create a backend environment file:
+### 2. Configure Backend Environment Variables
+
+Create a `.env` file inside the `backend` directory:
 
 ```bash
 cp backend/.env.example backend/.env
 ```
 
-Fill in:
+Then fill in your API keys:
 
 ```env
 GEMINI_API_KEY="your_gemini_api_key_here"
 JINA_API_KEY="your_jina_api_key_here"
 ```
 
-Install and run:
+### 3. Run the Backend
 
 ```bash
 cd backend
@@ -56,23 +71,15 @@ pip install -r requirements.txt
 uvicorn main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-API docs will be available at `http://127.0.0.1:8000/docs`.
+The API docs will be available at:
 
-### Frontend Setup
-
-Create a frontend environment file:
-
-```bash
-cp frontend/.env.local.example frontend/.env.local
+```text
+http://127.0.0.1:8000/docs
 ```
 
-For local development, keep:
+### 4. Run the Frontend
 
-```env
-NEXT_PUBLIC_API_BASE_URL="http://localhost:8000"
-```
-
-Install and run:
+Open a second terminal:
 
 ```bash
 cd frontend
@@ -80,5 +87,44 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open:
 
+```text
+http://localhost:3000
+```
+
+By default, the frontend connects to:
+
+```text
+http://localhost:8000
+```
+
+If you need to change the backend URL, create `frontend/.env.local`:
+
+```bash
+cp frontend/.env.local.example frontend/.env.local
+```
+
+Then update:
+
+```env
+NEXT_PUBLIC_API_BASE_URL="http://localhost:8000"
+```
+
+## Project Status
+
+This is an MVP built for a hackathon. The current version focuses on proving the core workflow:
+
+1. Scrape website content.
+2. Analyze it against GEO criteria.
+3. Explain what is missing.
+4. Generate a safer optimized rewrite.
+
+Future improvements could include user accounts, saved audit history, source previews, before/after scoring, and direct CMS export.
+
+## Notes
+
+- Only public webpage content is analyzed.
+- API keys are required for backend functionality.
+- The app blocks localhost and private-network URLs for safer scraping behavior.
+- CORS is currently open for local/hackathon development and should be restricted before production deployment.
